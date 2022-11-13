@@ -12,7 +12,7 @@
 	export let id = 'svelte-toggler-id';
 	export let ariaLabelledBy = '';
 	export let ariaLabel = '';
-	export let toggleThreshold = 0.5;
+	export let toggleThreshold = 0.3;
 
 	let startX: number;
 	let isActive: boolean;
@@ -104,23 +104,28 @@
 	};
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	on:click={handleClick}
 	bind:this={checkbox}
 	role="button"
-	class="toggle"
-	class:checked={isChecked}
-	class:focus={hasFocus}
-	class:disabled
+	class="svelte-toggle"
+	class:svelte-toggle--checked={isChecked}
+	class:svelte-toggle--focus={hasFocus}
+	class:svelte-toggle--disabled={disabled}
 	on:touchstart={handleTouchStart}
 	on:touchmove={handleTouchMove}
 	on:touchend={handleTouchEnd}
 >
-	<div class="track">
-		<div class="track-checked" />
-		<div class="track-unchecked" />
+	<div class="svelte-toggle--track">
+		<div class="svelte-toggle--track-checked">
+			<slot />
+		</div>
+		<div class="svelte-toggle--track-unchecked">
+			<slot />
+		</div>
 	</div>
-	<div class="thumb" />
+	<div class="svelte-toggle--thumb" />
 	<input
 		type="checkbox"
 		{name}
@@ -132,12 +137,12 @@
 		{id}
 		on:focus={handleFocus}
 		on:blur={handleBlur}
-		class="screen-reader"
+		class="svelte-toggle--screen-reader"
 	/>
 </div>
 
 <style>
-	.toggle {
+	:global(.svelte-toggle) {
 		touch-action: pan-x;
 		display: inline-block;
 		position: relative;
@@ -156,7 +161,7 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
-	.track {
+	.svelte-toggle--track {
 		width: 50px;
 		height: 24px;
 		padding: 0;
@@ -167,7 +172,7 @@
 		transition: all 0.2s ease;
 	}
 
-	.screen-reader {
+	.svelte-toggle--screen-reader {
 		border: 0;
 		clip: rect(0 0 0 0);
 		height: 1px;
@@ -178,19 +183,19 @@
 		width: 1px;
 	}
 
-	.toggle:hover:not(.disabled) .track {
+	.svelte-toggle:hover:not(.svelte-toggle--disabled) .svelte-toggle--track {
 		background-color: #000000;
 	}
 
-	.checked .track {
+	.svelte-toggle--checked .svelte-toggle--track {
 		background-color: #19ab27;
 	}
 
-	.checked:hover:not(.disabled) .track {
+	.svelte-toggle--checked:hover:not(.svelte-toggle--disabled) .svelte-toggle--track {
 		background-color: #128d15;
 	}
 
-	.track-checked {
+	.svelte-toggle--track-checked {
 		position: absolute;
 		width: 14px;
 		height: 10px;
@@ -206,14 +211,14 @@
 		transition: opacity 0.25s ease;
 	}
 
-	.checked .track-checked {
+	.svelte-toggle--checked .svelte-toggle--track-checked {
 		opacity: 1;
 		-webkit-transition: opacity 0.25s ease;
 		-moz-transition: opacity 0.25s ease;
 		transition: opacity 0.25s ease;
 	}
 
-	.track-unchecked {
+	.svelte-toggle--track-unchecked {
 		position: absolute;
 		width: 10px;
 		height: 10px;
@@ -229,21 +234,21 @@
 		transition: opacity 0.25s ease;
 	}
 
-	.checked .track-unchecked {
+	.svelte-toggle--checked .svelte-toggle--track-unchecked {
 		opacity: 0;
 	}
 
-	.disabled {
+	.svelte-toggle--disabled {
 		cursor: not-allowed;
 		opacity: 0.5;
 		-webkit-transition: opacity 0.25s;
 		transition: opacity 0.25s;
 	}
 
-	.thumb {
+	.svelte-toggle--thumb {
 		transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 		position: absolute;
-		top: 1px;
+		top: 0px;
 		left: 1px;
 		width: 22px;
 		height: 22px;
@@ -252,18 +257,18 @@
 		background-color: #fafafa;
 	}
 
-	.checked .thumb {
+	.svelte-toggle--checked .svelte-toggle--thumb {
 		left: 27px;
 		border-color: #19ab27;
 	}
 
-	.focus .thumb {
+	.svelte-toggle--focus .svelte-toggle--thumb {
 		-webkit-box-shadow: 0px 0px 3px 2px #0099e0;
 		-moz-box-shadow: 0px 0px 3px 2px #0099e0;
 		box-shadow: 0px 0px 2px 3px #0099e0;
 	}
 
-	.toggle:active:not(.disabled) .thumb {
+	.svelte-toggle:active:not(.svelte-toggle--disabled) .svelte-toggle--thumb {
 		-webkit-box-shadow: 0px 0px 5px 5px #0099e0;
 		-moz-box-shadow: 0px 0px 5px 5px #0099e0;
 		box-shadow: 0px 0px 5px 5px #0099e0;
