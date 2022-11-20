@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { beforeUpdate, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
 
 	export let checked = false;
 	export let disabled = false;
@@ -23,6 +26,7 @@
 	let checkboxLeft: number;
 	let checkboxRight: number;
 	let checkboxWidth: number;
+	let previouslyChecked: boolean = checked;
 
 	const handleFocus = (event: FocusEvent) => {
 		if (onFocus) {
@@ -46,12 +50,16 @@
 			checkbox.focus();
 			checkbox.click();
 			onChange(event);
-			console.log('curr value', isChecked);
 			if (isChecked === false) {
 				isChecked = true;
+				checked = true;
+				// previouslyChecked = false;
 			} else {
 				isChecked = false;
+				checked = false;
+				// previouslyChecked = true;
 			}
+			dispatch('toggle', isChecked);
 		}
 	};
 
@@ -87,13 +95,16 @@
 	};
 	const handleTouchMove = (event: TouchEvent) => {
 		const currentX = getXCords(event);
-		const threshold = checkboxLeft + checkboxWidth * toggleThreshold;
-		const thresholdRight = checkboxRight - checkboxWidth * toggleThreshold;
+		let threshold = checkboxLeft + checkboxWidth * toggleThreshold;
+		let thresholdRight = checkboxRight - checkboxWidth * toggleThreshold;
 		if (currentX > threshold && !isChecked && currentX > startX) {
 			isChecked = true;
+			startX = currentX;
 		} else if (currentX < thresholdRight && isChecked && currentX < startX) {
 			isChecked = false;
+			startX = currentX;
 		}
+		dispatch('toggle', isChecked);
 	};
 	const handleTouchEnd = (event: TouchEvent) => {
 		isMoved = false;
@@ -102,6 +113,10 @@
 		onChange(event);
 		startX = getXCords(event);
 	};
+
+	beforeUpdate(() => {
+		isChecked = checked;
+	});
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -119,10 +134,10 @@
 >
 	<div class="svelte-toggle--track">
 		<div class="svelte-toggle--track-checked">
-			<slot />
+			<slot name="checked-component" />
 		</div>
 		<div class="svelte-toggle--track-unchecked">
-			<slot />
+			<slot name="unchecked-component" />
 		</div>
 	</div>
 	<div class="svelte-toggle--thumb" />
@@ -132,7 +147,7 @@
 		{value}
 		aria-label={ariaLabel}
 		aria-labelledby={ariaLabelledBy}
-		{checked}
+		checked={isChecked}
 		{disabled}
 		{id}
 		on:focus={handleFocus}
@@ -258,7 +273,7 @@
 	}
 
 	.svelte-toggle--checked .svelte-toggle--thumb {
-		left: 27px;
+		left: 28px;
 		border-color: #19ab27;
 	}
 
