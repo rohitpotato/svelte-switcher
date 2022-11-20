@@ -1,5 +1,5 @@
 {
-	"name": "svelte-toggle",
+	"name": "svelte-switcher",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
@@ -9,7 +9,11 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"pre:package-release": "rm -rf ./package",
+		"package": "svelte-kit package && cp ./README.md ./package/README.md",
+		"build:docs": "node setupExamples.js",
+		"release": "release-it"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.25.0",
