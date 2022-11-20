@@ -1,0 +1,8 @@
+// Bind the checked prop with your external state to control the toggle status 
+
+<label>
+    <Toggle 
+        bind:{checked}={toggleStatus}
+        id="svelte-toggle" 
+    />
+</label>

@@ -1,0 +1,8 @@
+    <Toggle 
+        id="svelte-toggle-with-label" 
+        name="theme-toggle" 
+        onChange={handleChange}
+        defaultChecked={false}
+    >
+    </Toggle>
+    <label for='svelte-toggle-with-label'>Try clicking here</label>

@@ -1,0 +1,11 @@
+<label>
+    <Toggle 
+        id="svelte-toggle" 
+        name="theme-toggle" 
+        onChange={handleChange}
+        defaultChecked={false}
+    >
+        <span slot='checked-component'>&U+2713;</span>
+        <span slot='unchecked-component'>X</span>
+    </Toggle>
+</label>

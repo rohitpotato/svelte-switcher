@@ -15,7 +15,7 @@
 	export let id = 'svelte-toggler-id';
 	export let ariaLabelledBy = '';
 	export let ariaLabel = '';
-	export let toggleThreshold = 0.3;
+	export let toggleThreshold = 0.5;
 
 	let startX: number;
 	let isActive: boolean;
@@ -53,11 +53,9 @@
 			if (isChecked === false) {
 				isChecked = true;
 				checked = true;
-				// previouslyChecked = false;
 			} else {
 				isChecked = false;
 				checked = false;
-				// previouslyChecked = true;
 			}
 			dispatch('toggle', isChecked);
 		}
@@ -99,9 +97,11 @@
 		let thresholdRight = checkboxRight - checkboxWidth * toggleThreshold;
 		if (currentX > threshold && !isChecked && currentX > startX) {
 			isChecked = true;
+			checked = true;
 			startX = currentX;
 		} else if (currentX < thresholdRight && isChecked && currentX < startX) {
 			isChecked = false;
+			checked = false;
 			startX = currentX;
 		}
 		dispatch('toggle', isChecked);

@@ -4,6 +4,8 @@
 	import Hero from '../components/Hero.svelte';
 	import Examples from '../components/Examples/Examples.svelte';
 
+	/** @type {import('./$types').PageData} */
+	export let data;
 	let toggleStatus = false;
 </script>
 
@@ -13,7 +15,7 @@
 	</nav>
 	<main>
 		<Hero />
-		<Examples />
+		<Examples examples={data.body} />
 	</main>
 </main>
 

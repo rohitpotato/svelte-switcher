@@ -1,0 +1,18 @@
+// Wrap Toggle in a div, style with global prefix to control every aspect of the toggle
+
+<div>
+    <label>
+        <Toggle 
+            value='value'
+            id="svelte-toggle" 
+            name="svelte-toggle"
+            ariaLabel="toggle"
+            onChange={handleChange}
+            disabled={true}
+        />
+    </label>
+</div>
+
+<style>
+    
+</style>

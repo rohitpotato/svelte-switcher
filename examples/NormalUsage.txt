@@ -1,0 +1,8 @@
+<label>
+    <Toggle 
+        id="svelte-toggle" 
+        name="theme-toggle" 
+        onChange={handleChange}
+        defaultChecked={false}
+    />
+</label>
