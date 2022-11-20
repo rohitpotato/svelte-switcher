@@ -1,6 +1,6 @@
 <pre class="shiki" style="background-color: #22272e"><code><span class="line"><span style="color: #ADBAC7">// Wrap Toggle in a div, style with global prefix to control every aspect of the toggle</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #ADBAC7">&lt;</span><span style="color: #8DDB8C">div</span><span style="color: #ADBAC7">&gt;</span></span>
+<span class="line"><span style="color: #ADBAC7">&lt;</span><span style="color: #8DDB8C">div</span><span style="color: #ADBAC7"> </span><span style="color: #6CB6FF">id</span><span style="color: #ADBAC7">=</span><span style="color: #96D0FF">&#39;custom-styling&#39;</span><span style="color: #ADBAC7">&gt;</span></span>
 <span class="line"><span style="color: #ADBAC7">    &lt;</span><span style="color: #8DDB8C">label</span><span style="color: #ADBAC7">&gt;</span></span>
 <span class="line"><span style="color: #ADBAC7">        &lt;</span><span style="color: #8DDB8C">Toggle</span><span style="color: #ADBAC7"> </span></span>
 <span class="line"><span style="color: #ADBAC7">            </span><span style="color: #6CB6FF">value</span><span style="color: #ADBAC7">=</span><span style="color: #96D0FF">&#39;value&#39;</span></span>
@@ -14,5 +14,34 @@
 <span class="line"><span style="color: #ADBAC7">&lt;/</span><span style="color: #8DDB8C">div</span><span style="color: #ADBAC7">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ADBAC7">&lt;</span><span style="color: #8DDB8C">style</span><span style="color: #ADBAC7">&gt;</span></span>
-<span class="line"><span style="color: #ADBAC7">    </span></span>
+<span class="line"><span style="color: #ADBAC7">    </span><span style="color: #6CB6FF">#custom-styling</span><span style="color: #ADBAC7"> </span><span style="color: #F47067">&gt;</span><span style="color: #ADBAC7"> :global(</span><span style="color: #6CB6FF">.svelte-toggle</span><span style="color: #ADBAC7"> </span><span style="color: #6CB6FF">.svelte-toggle--track</span><span style="color: #ADBAC7">) {</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">width</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">60</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">height</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">30</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">border-radius</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">4</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ADBAC7">	</span><span style="color: #6CB6FF">#custom-styling</span><span style="color: #ADBAC7"> </span><span style="color: #F47067">&gt;</span><span style="color: #ADBAC7"> :global(</span><span style="color: #6CB6FF">.svelte-toggle</span><span style="color: #ADBAC7"> </span><span style="color: #6CB6FF">.svelte-toggle--thumb</span><span style="color: #ADBAC7">) {</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">height</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">29</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">width</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">28</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">border-radius</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">4</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ADBAC7">	</span><span style="color: #6CB6FF">#custom-styling</span><span style="color: #ADBAC7"> </span><span style="color: #F47067">&gt;</span><span style="color: #ADBAC7"> :global(</span><span style="color: #6CB6FF">.svelte-toggle.svelte-toggle--checked</span><span style="color: #ADBAC7"> </span><span style="color: #6CB6FF">.svelte-toggle--thumb</span><span style="color: #ADBAC7">) {</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">left</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">32</span><span style="color: #F47067">px</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ADBAC7">	</span><span style="color: #6CB6FF">#custom-styling</span><span style="color: #ADBAC7"> </span><span style="color: #F47067">&gt;</span><span style="color: #ADBAC7"> :global(</span><span style="color: #6CB6FF">.svelte-toggle.svelte-toggle--checked</span><span style="color: #ADBAC7"> </span><span style="color: #6CB6FF">.svelte-toggle--track</span><span style="color: #ADBAC7">) {</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">background-color</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">rgb</span><span style="color: #ADBAC7">(</span><span style="color: #6CB6FF">158</span><span style="color: #ADBAC7">, </span><span style="color: #6CB6FF">42</span><span style="color: #ADBAC7">, </span><span style="color: #6CB6FF">152</span><span style="color: #ADBAC7">);</span></span>
+<span class="line"><span style="color: #ADBAC7">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ADBAC7">	</span><span style="color: #6CB6FF">#custom-styling</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #F47067">&gt;</span><span style="color: #ADBAC7"> :global(</span><span style="color: #6CB6FF">.svelte-toggle.svelte-toggle--checked:hover:not</span><span style="color: #ADBAC7">(</span><span style="color: #6CB6FF">.svelte-toggle--disabled</span><span style="color: #ADBAC7">)</span></span>
+<span class="line"><span style="color: #ADBAC7">			</span><span style="color: #6CB6FF">.svelte-toggle--track</span><span style="color: #ADBAC7">) {</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">background-color</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">rgb</span><span style="color: #ADBAC7">(</span><span style="color: #6CB6FF">132</span><span style="color: #ADBAC7">, </span><span style="color: #6CB6FF">3</span><span style="color: #ADBAC7">, </span><span style="color: #6CB6FF">126</span><span style="color: #ADBAC7">) </span><span style="color: #F47067">!important</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ADBAC7">	</span><span style="color: #6CB6FF">#custom-styling</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #F47067">&gt;</span><span style="color: #ADBAC7"> :global(</span><span style="color: #6CB6FF">.svelte-toggle:hover:not</span><span style="color: #ADBAC7">(</span><span style="color: #6CB6FF">.svelte-toggle--disabled</span><span style="color: #ADBAC7">) </span><span style="color: #6CB6FF">.svelte-toggle--track</span><span style="color: #ADBAC7">) {</span></span>
+<span class="line"><span style="color: #ADBAC7">		</span><span style="color: #6CB6FF">background-color</span><span style="color: #ADBAC7">: </span><span style="color: #6CB6FF">#4d4d4d</span><span style="color: #ADBAC7"> </span><span style="color: #F47067">!important</span><span style="color: #ADBAC7">;</span></span>
+<span class="line"><span style="color: #ADBAC7">	}</span></span>
 <span class="line"><span style="color: #ADBAC7">&lt;/</span><span style="color: #8DDB8C">style</span><span style="color: #ADBAC7">&gt;</span></span></code></pre>

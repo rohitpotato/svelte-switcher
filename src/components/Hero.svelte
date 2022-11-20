@@ -9,6 +9,11 @@
 	<p class="my-3">A fully accessible, customisable toggle component for svelte apps</p>
 
 	<div class="mt-4"><Toggle value={'a'} /></div>
+
+	<div class="mt-10 border-2">
+		<h1 class="text-center my-8 text-2xl font-semibold">Class heirarchy</h1>
+		<img alt="class-heirarchy-toggle" width="1000px" src="/svelte-toggle.svg" />
+	</div>
 </div>
 
 <style>

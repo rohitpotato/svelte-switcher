@@ -34,6 +34,10 @@
 		},
 		ControlledUsage: {
 			isControlled: true,
+			props: {}
+		},
+		CustomStyling: {
+			hasCustomStyling: true,
 			props: {
 				defaultChecked: true
 			}
@@ -82,6 +86,8 @@
 										>
 									</div>
 								</div>
+							{:else if componentPropsMap[key]?.hasCustomStyling}
+								<Toggle checked={true} />
 							{:else}
 								<Toggle />
 							{/if}

@@ -1,6 +1,6 @@
 // Wrap Toggle in a div, style with global prefix to control every aspect of the toggle
 
-<div>
+<div id='custom-styling'>
     <label>
         <Toggle 
             value='value'
@@ -14,5 +14,34 @@
 </div>
 
 <style>
-    
+    #custom-styling > :global(.svelte-toggle .svelte-toggle--track) {
+		width: 60px;
+		height: 30px;
+		border-radius: 4px;
+	}
+
+	#custom-styling > :global(.svelte-toggle .svelte-toggle--thumb) {
+		height: 29px;
+		width: 28px;
+		border-radius: 4px;
+	}
+
+	#custom-styling > :global(.svelte-toggle.svelte-toggle--checked .svelte-toggle--thumb) {
+		left: 32px;
+	}
+
+	#custom-styling > :global(.svelte-toggle.svelte-toggle--checked .svelte-toggle--track) {
+		background-color: rgb(158, 42, 152);
+	}
+
+	#custom-styling
+		> :global(.svelte-toggle.svelte-toggle--checked:hover:not(.svelte-toggle--disabled)
+			.svelte-toggle--track) {
+		background-color: rgb(132, 3, 126) !important;
+	}
+
+	#custom-styling
+		> :global(.svelte-toggle:hover:not(.svelte-toggle--disabled) .svelte-toggle--track) {
+		background-color: #4d4d4d !important;
+	}
 </style>

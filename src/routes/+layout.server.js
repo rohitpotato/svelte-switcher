@@ -35,7 +35,8 @@ export async function load() {
 			key: fileKey
 		};
 	});
-	const all = await Promise.all(files);
+
+	const all = await (await Promise.all(files)).sort((a, b) => a.sortOrder - b.sortOrder);
 	return {
 		body: all,
 		headers: {
