@@ -10,14 +10,7 @@ const config = {
 	}),
 
 	kit: {
-		adapter: adapter(),
-		vite: {
-			serve: {
-				fs: {
-					allow: ['./package']
-				}
-			}
-		}
+		adapter: adapter()
 	}
 };
 
