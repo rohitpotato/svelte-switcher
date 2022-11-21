@@ -25,7 +25,7 @@ export const generateExamples = async () => {
 		// } catch (e) {
 		// 	//
 		// }
-		return fs.writeFile(path.join(__dirname, `./src/routes/code/${fileName}.html`), html, {
+		return fs.writeFile(path.join(__dirname, `./code/${fileName}.html`), html, {
 			encoding: 'utf8',
 			flag: 'w'
 		});

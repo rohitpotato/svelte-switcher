@@ -20,7 +20,6 @@
 	export let controlledChecked = false;
 
 	export let examples: IExamples[];
-	console.log({ examples });
 	const componentPropsMap: IComponentPropsMap = {
 		WithIcons: {
 			withChildren: true,

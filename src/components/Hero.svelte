@@ -5,10 +5,10 @@
 </script>
 
 <div class="flex items-center justify-center mt-24 flex-col text-white">
-	<h1 class="font-semibold text-5xl">Svelte Toggle</h1>
+	<h1 class="font-semibold text-5xl">Svelte Switcher</h1>
 	<p class="my-3">A fully accessible, customisable toggle component for svelte apps</p>
 
-	<div class="mt-4"><Toggle value={'a'} /></div>
+	<div class="mt-4"><Toggle checked={true} value={'a'} /></div>
 
 	<div class="mt-10 border-2">
 		<h1 class="text-center my-8 text-2xl font-semibold">Class heirarchy</h1>

@@ -23,8 +23,7 @@ const fileExampleMapping = {
 
 // /** @type {import('./$types').LayoutServerLoad} */
 export async function load() {
-	const allFiles = import.meta.glob('./code/*.html', { as: 'raw' });
-	console.log({ allFiles });
+	const allFiles = import.meta.glob('../../code/*.html', { as: 'raw' });
 	const files = Object.keys(allFiles).map(async (name) => {
 		const fileName = name.split('/').pop();
 		const fileKey = fileName.split('.')[0];
