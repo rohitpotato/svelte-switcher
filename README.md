@@ -1,38 +1,61 @@
-# create-svelte
+# Svelte Switcher
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A fully accessible, mobile-friendly and customisable toggle component for svelte apps.
 
-## Creating a project
+### [View examples and demo here](https://svelte-switcher.vercel.app/)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install `svelte-switcher` with npm
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+  npm install svelte-switcher
 ```
 
-## Building
+## Usage/Examples
 
-To create a production version of your app:
+### [Click here to view examples](https://svelte-switcher.vercel.app/)
 
-```bash
-npm run build
+```javascript
+<script>
+    import Toggle from 'svelte-switcher'
+</script>
+
+<Toggle
+    id="svelte-toggle"
+    name="theme-toggle"
+    defaultChecked={false}
+    on:toggle={handleToggle}
+    ...
+/>
 ```
 
-You can preview the production build with `npm run preview`.
+## API
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+#### Props
+
+| Props            | Description                                   | Default value           |
+| :--------------- | :-------------------------------------------- | :---------------------- |
+| `checked`        | determines if the toggle is active            | `false`                 |
+| `disabled`       | determines if the toggle is disabled          | `false`                 |
+| `onChange`       | fires when toggle status change               | `void`                  |
+| `onFocus`        | fires when toggle is focused                  | `void`                  |
+| `onBlur`         | fires when toggle is unfocused                | `void`                  |
+| `name`           | `name` attr for the underlying input element  | `svelte-switcher-name`  |
+| `value`          | `value` attr for the underlying input element | `svelte-switcher-value` |
+| `id`             | `id` attr for the underlying input element    | `svelte-switcher-id`    |
+| `ariaLabelledBy` | `ariaLabelledBy` attr                         |                         |
+| `ariaLabel`      | `ariaLabel` attr                              |                         |
+
+#### Slots
+
+| Slot Name             | Description                               | Default value |
+| :-------------------- | :---------------------------------------- | :------------ |
+| `checked-component`   | Slot for checked state icon / component   |               |
+| `unchecked-component` | Slot for unchecked state icon / component |               |
+
+#### Events
+
+| Event Name | Description                      | Payload              |
+| :--------- | :------------------------------- | :------------------- |
+| `toggle`   | Fires when toggle status changes | `isChecked: boolean` |
