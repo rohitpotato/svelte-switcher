@@ -3,7 +3,8 @@
 >
 	<h1 class="text-white">Svelte Toggle</h1>
 	<div class="flex gap-8 text-white text-opacity-75">
-		<a href="https://github.com/rohitpotato/svelte-toggle" target="_blank" rel="noreferer">Github</a
+		<a href="https://github.com/rohitpotato/svelte-switcher" target="_blank" rel="noreferer"
+			>Github</a
 		>
 		<a href="https://twitter.com/rohitpotato" target="_blank" rel="noreferer">Twitter</a>
 	</div>
