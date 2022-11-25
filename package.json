@@ -1,6 +1,6 @@
 {
 	"name": "svelte-switcher",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "npm run build:docs && vite dev",
 		"build": "npm run build:docs && vite build && svelte-kit sync && svelte-package",
