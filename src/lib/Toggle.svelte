@@ -263,7 +263,7 @@
 	.svelte-toggle--thumb {
 		transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 		position: absolute;
-		top: 0px;
+		top: 1px;
 		left: 1px;
 		width: 22px;
 		height: 22px;
